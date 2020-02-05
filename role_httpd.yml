@@ -1,4 +1,6 @@
 ---
-- hosts: localhost 
+- hosts: vagrant
+  remote_user: vagrant 
+  become: yes
   roles:
     - httpd
