@@ -5,21 +5,25 @@
     name: httpd
     state: latest
   notify: 
-    - start httpd
+    - "restart httpd"
 - name: create index.html file
   file: 
     name: /var/www/html/index.html
     state: touch
 - name: Changement de port
   template:
-    src: httpd_conf.j2
+    src: httpd.j2
     dest: /etc/httpd/conf/httpd.conf
+  notify:
+    - "restart httpd"
 - name: Copie de fichier
   copy:
     src: git.yml 
     dest: /vagrant_data/
 - name: add web content
   lineinfile:
-    line: " ceci est un test {,} veuillez ne pas en tenir compte"
-    line: " Je vous remercie "
+    line: "{{ item }}"
     path: /var/www/html/index.html
+  with_items:
+    - "ceci est un test, veuillez ne pas en tenir compte"
+    - "Je vous remercie"

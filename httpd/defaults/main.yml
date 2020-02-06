@@ -1,4 +1,4 @@
 ---
 # defaults file for httpd
-hosts: localhost
+hosts: vagrant 
 become: yes

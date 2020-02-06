@@ -1,5 +1,5 @@
 ---
 # vars file for httpd
-new_port: 8081
+new_port: 9000
 target_service: httpd
-target_state: started
+target_state: restarted

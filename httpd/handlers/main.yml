@@ -3,4 +3,5 @@
 - name: restart httpd service
   service: 
    name: "{{ target_service }}"
-   state: "{{ target_state }} "
+   state: "{{ target_state }}"
+  listen: "restart httpd"
