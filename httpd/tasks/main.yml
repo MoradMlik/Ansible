@@ -20,9 +20,6 @@
     dest: /vagrant_data/
 - name: add web content
   lineinfile:
-    line: " ceci est un test"
+    line: " ceci est un test {,} veuillez ne pas en tenir compte"
+    line: " Je vous remercie "
     path: /var/www/html/index.html
-- name: Ensure target service is at target state
-  service:
-    name: "{{ target_service }}"
-    state: "{{ target_state }}"

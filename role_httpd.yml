@@ -1,4 +1,8 @@
 ---
-- hosts: localhost 
+- hosts: localhost #vagrant
+#  remote_user: vagrant 
+  gather_fact:false
+  become: 
   roles:
-    - httpd
+#    - httpd
+    - jenkins
